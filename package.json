@@ -1,0 +1,28 @@
+{
+  "name": "pwa-starter",
+  "version": "0.0.1",
+  "description": "A minimalistic Progressive Web App starter.",
+  "scripts": {
+    "build": "parallelshell \"npm run copy-static\" \"npm run build:client\" \"npm run build:sw\"",
+    "build:sw": "rollup -c build-configurations/sw.config.js",
+    "build:client": "rollup -c build-configurations/client.config.js",
+    "copy-static": "copyfiles -u 1 src/*.{html,json} output",
+    "webserver": "http-server output --gzip",
+    "watch": "parallelshell \"npm run copy-static\" \"npm run watch:client\" \"npm run watch:sw\" \"npm run webserver\"",
+    "watch:client": "npm run build:client -- -w",
+    "watch:sw": "npm run build:sw -- -w",
+    "start": "npm run watch -s"
+  },
+  "author": "Agron Kabashi",
+  "license": "MIT",
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "parallelshell": "^2.0.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-watch": "^3.2.2"
+  },
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}

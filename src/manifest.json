@@ -1,0 +1,11 @@
+{
+  "background_color": "",
+  "description": "",
+  "display": "standalone",
+  "icons": [],
+  "lang": "en-US",
+  "name": "Progressive Web App Starter",
+  "orientation": "any",
+  "short_name": "PWA Starter",
+  "start_url": "."
+}
